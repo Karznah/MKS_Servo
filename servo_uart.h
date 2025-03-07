@@ -12,7 +12,7 @@
  * V.0.0 - Initial Development from User Manual/MKS SERVO42&57D_RS485 User Manual V1.0.6.pdf
  ******************************************/
 
-uint8_t calcChecksum(const uint8_t *buffer, int buf_len);
+uint8_t calcChecksum(const uint8_t[] *buffer, int buf_len);
 
 int readEncoderCarry(uint8_t address, int32_t *carry, uint16_t *value);
 int readEncoderAddition(uint8_t address, int48_t *value);
@@ -44,4 +44,20 @@ int setKeyLock(uint8_t address, uint8_t enable);
 int setGroupAddress(uint8_t address, uint8_t groupAddr);
 
 int writeIOPort(uint8_t address, uint8_t data);
+int setParameterHome(uint8_t address, uint8_t data);
+int goHome(uint8_t address);
+int setCurrentAxisZero(uint8_t address);
+int setNoLimitGoHome(uint8_t address, uint8_t retAngle, uint8_t mode, uint16_t maLimit);
+int setLimitPortRemap(uint8_t address, uint8_t enable);
+int set0ModeParamater(uint8_t address, uint8_t mode, uint8_t enable, uint8_t speed, uint8_t direction);
+int restoreDefaults(uint8_t address);
+int restartMotor(uint8_t address);
+
+// Long packets not implemented!
+
+int writeConfig(uint8_t address, uint8_t[] *config);
+int readConfig(uint8_t address, uint8_t[] *config);
+int readStatus(uint8_t address, uint8_t[] *status);
+
+int setEnTrigger0(uint8_t address);
 
