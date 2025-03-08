@@ -12,6 +12,9 @@
  * V.0.0 - Initial Development from User Manual/MKS SERVO42&57D_RS485 User Manual V1.0.6.pdf
  ******************************************/
 
+#include <stdio.h>
+#include <stdint.h>
+
 uint8_t calcChecksum(const uint8_t[] *buffer, int buf_len);
 
 int readEncoderCarry(uint8_t address, int32_t *carry, uint16_t *value);
