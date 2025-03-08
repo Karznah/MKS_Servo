@@ -193,15 +193,15 @@ uint8_t restartMotor(uint8_t address)
 {
     return 255;
 }
-uint8_t writeConfig(uint8_t address, uint8_t[] *config)
+uint8_t writeConfig(uint8_t address, uint8_t *config)
 {
 return 255;
 }
-uint8_t readConfig(uint8_t address, uint8_t[] *config)
+uint8_t readConfig(uint8_t address, uint8_t *config)
 {
 return 255;
 }
-uint8_t readAllStatus(uint8_t address, uint8_t[] *status)
+uint8_t readAllStatus(uint8_t address, uint8_t *status)
 {
 return 255;
 }
