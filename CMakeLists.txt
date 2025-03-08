@@ -1,0 +1,1 @@
+add_library(MKS_Servo servo_uart.c servo_uart.h)

@@ -25,7 +25,26 @@ uint8_t calcChecksum(const uint8_t *buffer, int buf_len)
         {
             sum += buffer[i];
         }
-        return sum & 0xFF;
+        return (sum & 0xFF);
+    }
+
+/******************************************************************
+ * Takes an array of uint8_t and transmits on the selected UART interface
+ * Currently this only supports UART blocking for
+ *****************************************************************/
+uint8_t transmitRS485(const uint8_t *buffer, int buf_len)
+    {
+
+        return 255;
+    }
+
+/******************************************************************
+ * Takes an array of uint8_t and transmits on the selected UART interface
+ * Currently this only supports UART blocking for
+ *****************************************************************/
+uint8_t receiveRS485(uint8_t *buffer, int buf_len)
+    {
+        return 255;
     }
 
 uint8_t readEncoderCarry(uint8_t address, int32_t *carry, uint16_t *value)
@@ -171,6 +190,59 @@ uint8_t restoreDefaults(uint8_t address)
     return 255;
 }
 uint8_t restartMotor(uint8_t address)
+{
+    return 255;
+}
+uint8_t writeConfig(uint8_t address, uint8_t[] *config)
+{
+return 255;
+}
+uint8_t readConfig(uint8_t address, uint8_t[] *config)
+{
+return 255;
+}
+uint8_t readAllStatus(uint8_t address, uint8_t[] *status)
+{
+return 255;
+}
+uint8_t setEnTrigger0(uint8_t address)
+{
+    return 255;
+}
+uint8_t readMotorStatus(uint8_t address, uint8_t status)
+{
+    return 255;
+}
+uint8_t enableMotor(uint8_t address, uint8_t enable)
+{
+    return 255;
+}
+uint8_t emergencyStop(uint8_t address)
+{
+    return 255;
+}
+uint8_t runSpeedMode(uint8_t address, uint8_t direction, uint16_t speed, uint8_t acceleration)
+{
+    uint8_t txBuffer[7];
+    uint8_t rxBuffer[5];
+
+    txBuffer[0] = 0xFA;
+    txBuffer[1] = address;
+    txBuffer[2] = 0xF6;
+    txBuffer[3] = (direction << 7) | ((speed >> 8) & 0X0F);
+    txBuffer[4] = speed & 0x00FF;
+    txBuffer[5] = acceleration;
+    txBuffer[6] = calcChecksum(txBuffer, 6);
+
+    transmitRS485(txBuffer, 7);
+
+    receiveRS485(rxBuffer, 5);
+}
+uint8_t stopSpeedMode(uint8_t address, uint8_t acceleration)
+{
+    return 255;
+}
+uint8_t saveSpeedMode(uint8_t address, uint8_t state)
 {
     return 255;
 }
