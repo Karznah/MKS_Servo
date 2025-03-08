@@ -20,11 +20,11 @@ uint8_t transmitRS485(const uint8_t *buffer, int buf_len);
 uint8_t receiveRS485(uint8_t *buffer, int buf_len);
 
 uint8_t readEncoderCarry(uint8_t address, int32_t *carry, uint16_t *value);
-uint8_t readEncoderAddition(uint8_t address, int48_t *value);
+uint8_t readEncoderAddition(uint8_t address, int64_t *value);
 uint8_t readMotorSpeed(uint8_t address, int16_t * speed);
 uint8_t readEncoderPulseCount(uint8_t address, int32_t *pulses);
 uint8_t readIOPortStatus(uint8_t address, uint8_t *status); // May wish to consider rewriting this one to return status of each port individually
-uint8_t readEncoderRaw(uint8_t address, int48_t *value);
+uint8_t readEncoderRaw(uint8_t address, int64_t *value);
 uint8_t readEncoderError(uint8_t address, int32_t *error);
 uint8_t readEnPinStatus(uint8_t address, uint8_t *status);
 uint8_t readGo0Status(uint8_t address, uint8_t *status);
@@ -54,15 +54,15 @@ uint8_t goHome(uint8_t address);
 uint8_t setCurrentAxisZero(uint8_t address);
 uint8_t setNoLimitGoHome(uint8_t address, uint8_t retAngle, uint8_t mode, uint16_t maLimit);
 uint8_t setLimitPortRemap(uint8_t address, uint8_t enable);
-uint8_t set0ModeParamater(uint8_t address, uint8_t mode, uint8_t enable, uint8_t speed, uint8_t direction);
+uint8_t set0ModeParameter(uint8_t address, uint8_t mode, uint8_t enable, uint8_t speed, uint8_t direction);
 uint8_t restoreDefaults(uint8_t address);
 uint8_t restartMotor(uint8_t address);
 
 // Long packets not implemented!
 
-uint8_t writeConfig(uint8_t address, uint8_t[] *config);
-uint8_t readConfig(uint8_t address, uint8_t[] *config);
-uint8_t readAllStatus(uint8_t address, uint8_t[] *status);
+uint8_t writeConfig(uint8_t address, uint8_t *config);
+uint8_t readConfig(uint8_t address, uint8_t *config);
+uint8_t readAllStatus(uint8_t address, uint8_t *status);
 
 uint8_t setEnTrigger0(uint8_t address);
 

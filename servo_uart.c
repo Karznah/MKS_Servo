@@ -52,7 +52,7 @@ uint8_t readEncoderCarry(uint8_t address, int32_t *carry, uint16_t *value)
     return 255;
 }
 
-uint8_t readEncoderAddition(uint8_t address, int48_t *value)
+uint8_t readEncoderAddition(uint8_t address, int64_t *value)
 {
     return 255;
 }
@@ -69,7 +69,7 @@ uint8_t readIOPortStatus(uint8_t address, uint8_t *status) // May wish to consid
 {
     return 255;
 }
-uint8_t readEncoderRaw(uint8_t address, int48_t *value)
+uint8_t readEncoderRaw(uint8_t address, int64_t *value)
 {
     return 255;
 }
